@@ -99,6 +99,8 @@ venv.bak/
 .spyderproject
 .spyproject
 
+token.txt
+
 # Rope project settings
 .ropeproject
 
