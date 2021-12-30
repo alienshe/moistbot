@@ -1,7 +1,11 @@
 import pandas as pd
 import csv
 from random import randint
-df = pd.read_csv(r"E:/Independent Research Project/moistdata/moist.csv")
+import os
+script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+rel_path = "moistdata/moist.csv"
+abs_file_path = os.path.join(script_dir, rel_path)
+df = pd.read_csv(abs_file_path)
 protomoist=df[df.columns[0]]
 protohole=df[df.columns[1]]
 protopole=df[df.columns[2]]
@@ -30,8 +34,8 @@ def generatetouch():
 
 import discord
 import os
-TOKEN = 'ODc4ODY1OTY4OTAwNzYzNzA4.YSHZtw.nFJ4mTAI48Znxta6xj8ghulwiYs'
-
+with open(os.path.join(script_dir, 'token.txt')) as f:
+    TOKEN = f.readline()
 client = discord.Client()
 
 @client.event
