@@ -46,7 +46,7 @@ async def on_message(message):
 
     moist = "moist"
     changes = ['nice', 'summer']
-    words=["moist","hole","pole","touch"]
+    words=["moist","hole","pole","touch",]
     response_message = message.content
     booly=False
     for word in words:
@@ -54,20 +54,16 @@ async def on_message(message):
             booly=True
         better_words=[]
     if booly:
-        for word in message.content.split():
-            if word.lower()=="moist":
-                better_words.append(generatemoist())
-            elif word.lower()=="hole":
-                better_words.append(generatehole())
-            elif word.lower()=="pole":
-                better_words.append(generatepole())
-            elif word.lower()=="touch":
-                better_words.append(generatetouch())
-            else:
-                better_words.append(word)
-    response_message= " ".join(better_words)
-    await message.channel.send(response_message)  # send this one after the replacement loop
+        stringmessage=message.content.lower()
+        current=stringmessage
+        current=current.replace("hole",generatehole())
+        current=current.replace("pole",generatepole())
+        current=current.replace("moist",generatemoist())
+        current=current.replace("touch",generatetouch())
+        current=current.replace("sorcerer","shitty wizard")
+        response_message=current
+        await message.channel.send(response_message)  # send this one after the replacement loop
 
-    await client.process_commands(message)
+        await client.process_commands(message)
 
 client.run(TOKEN)
