@@ -6,6 +6,7 @@ script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 rel_path = "moistdata/moist.csv"
 abs_file_path = os.path.join(script_dir, rel_path)
 df = pd.read_csv(abs_file_path)
+
 protomoist=df[df.columns[0]]
 protohole=df[df.columns[1]]
 protopole=df[df.columns[2]]
