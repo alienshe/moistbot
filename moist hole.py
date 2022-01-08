@@ -44,9 +44,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    moist = "moist"
-    changes = ['nice', 'summer']
-    words=["moist","hole","pole","touch",]
+    words=["moist","hole","pole","touch","sorcerer"]
     response_message = message.content
     booly=False
     for word in words:
