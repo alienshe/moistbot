@@ -58,10 +58,11 @@ client = discord.Client()
 async def on_message(message):
     if message.author == client.user:
         return
-
+    if message.author.id == ('Paris#8008'):
+        return
     words=["moist","hole","pole","touch","sorcerer","ball","meat"]
     response_message = message.content
-    test_response=message.content
+    test_response=message.content.lower()
     booly=False
     for word in words:
         if word in message.content.lower():
